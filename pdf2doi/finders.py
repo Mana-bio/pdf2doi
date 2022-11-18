@@ -8,7 +8,6 @@ this module.
 from urllib.parse import unquote
 from itertools import accumulate
 from PyPDF2 import PdfFileReader, PdfFileWriter
-import textract
 import requests
 import pdftitle
 import re
@@ -400,6 +399,7 @@ def get_pdf_text(file,reader):
                 logger.error("Error from PyPDF2: " + str(e))
                 break 
     if reader == 'textract':
+        import textract
         #This block of code is not very efficient. We start from an object file (file), we extract its path, and then we pass this path to the library
         #textract, which will later re-open the file; however, right now there isn't a workaround, because textract does not accept an object file as input.
         path = file.name #Note: this part will fail with if the object file does not correpond to a locally available file
@@ -743,6 +743,7 @@ finder_methods = {
                     "first_N_characters_google" : find_identifier_by_googling_first_N_characters_in_pdf
                     }
 
-reader_libraries = ['PyPdf','textract']
+# reader_libraries = ['PyPdf','textract']
+reader_libraries = ['PyPdf']
 
 ######## End second part ######## 
