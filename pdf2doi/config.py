@@ -31,6 +31,8 @@ save_identifier_metadata                Sets the default value of the global set
                                         If set True, when a valid identifier is found with any method different than the metadata lookup the identifier
                                         is also written inside the file metadata with key "/identifier". If set False, this does not happen.
                                  
+'replace_arxivID_by_DOI_when_available' 
+
 '''
 
 
@@ -42,7 +44,8 @@ class config():
             'websearch' : True,
             'numb_results_google_search' : 6,
             'N_characters_in_pdf' : 1000,
-            'save_identifier_metadata' : True
+            'save_identifier_metadata' : True,
+            'replace_arxivID_by_DOI_when_available' : True
             }
     __setters = __params.keys()
 
